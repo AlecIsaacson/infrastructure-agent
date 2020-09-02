@@ -940,7 +940,7 @@ func TestManager_contextWithVerbose(t *testing.T) {
 }
 
 func tempFiles(pathContents map[string]string) (directory string, err error) {
-	dir, err := ioutil.TempDir("", "tempFiles")
+	dir, err := ioutil.TempDir("", "tempFiles-*")
 	if err != nil {
 		return "", err
 	}
