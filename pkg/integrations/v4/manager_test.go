@@ -203,8 +203,8 @@ func TestManager_SkipLoadingV3IntegrationsWithNoWarnings(t *testing.T) {
 
 	// GIVEN a set of configuration files
 	dir, err := tempFiles(map[string]string{
-		"v4-integrations-1.yaml": v4File,
-		"v3-config-1.yaml":       v3File, // it will be ignored
+		"v4-integrations.yaml": v4File,
+		"v3-config.yaml":       v3File, // it will be ignored
 	})
 	require.NoError(t, err)
 	defer removeTempFiles(t, dir)
@@ -940,7 +940,10 @@ func TestManager_contextWithVerbose(t *testing.T) {
 }
 
 func tempFiles(pathContents map[string]string) (directory string, err error) {
-	dir, err := ioutil.TempDir("", "tempFiles-*")
+
+	dirSuffix := string(time.Now().UnixNano())
+
+	dir, err := ioutil.TempDir("", "tempFiles-*-" + dirSuffix)
 	if err != nil {
 		return "", err
 	}
