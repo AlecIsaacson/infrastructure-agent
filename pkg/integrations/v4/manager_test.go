@@ -216,6 +216,7 @@ func TestManager_SkipLoadingV3IntegrationsWithNoWarnings(t *testing.T) {
 
 	// THEN no long entries found
 	for i := range hook.Entries {
+		fmt.Println("tmp dir: " + dir)
 		fmt.Println(hook.Entries[i]) // Use stdout as logger is in discard mode and we never run tests in verbose
 	}
 	assert.Empty(t, hook.Entries)
