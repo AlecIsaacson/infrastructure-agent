@@ -9,7 +9,6 @@ import (
 	"os"
 	"path/filepath"
 	"runtime"
-	"strconv"
 	"strings"
 	"testing"
 	"time"
@@ -942,10 +941,7 @@ func TestManager_contextWithVerbose(t *testing.T) {
 }
 
 func tempFiles(pathContents map[string]string) (directory string, err error) {
-
-	dirSuffix := strconv.Itoa(int(time.Now().UnixNano()))
-
-	dir, err := ioutil.TempDir("", "tempFiles-*-" + dirSuffix)
+	dir, err := ioutil.TempDir("", "tempFiles")
 	if err != nil {
 		return "", err
 	}
