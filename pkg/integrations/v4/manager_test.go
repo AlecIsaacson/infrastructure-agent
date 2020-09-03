@@ -203,7 +203,7 @@ func TestManager_SkipLoadingV3IntegrationsWithNoWarnings(t *testing.T) {
 
 	// GIVEN a set of configuration files
 	dir, err := tempFiles(map[string]string{
-		"v4-integrations.yaml": v4File,
+		"v4-integrations_test.yaml": v4File,
 		"v3-config.yaml":       v3File, // it will be ignored
 	})
 	require.NoError(t, err)
